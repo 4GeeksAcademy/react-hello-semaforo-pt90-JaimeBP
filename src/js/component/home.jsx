@@ -1,26 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
 
-//create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+    
+    const [color, setColor] = useState("off");
+
+    return (
+        <div className="d-flex flex-column align-items-center mt-5">
+            <div
+                style={{
+                    backgroundColor: "#333",
+                    width: "80px",
+                    padding: "10px",
+                    borderRadius: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                }}
+            >
+                {/* Luz roja */}
+                <div
+                    onClick={() => setColor("red")}
+                    style={{
+                        backgroundColor: color === "red" ? "red" : "#550000",
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "50%",
+                        marginBottom: "10px",
+                        cursor: "pointer",
+                    }}
+                ></div>
+                {/* Luz amarilla */}
+                <div
+                    onClick={() => setColor("yellow")}
+                    style={{
+                        backgroundColor: color === "yellow" ? "yellow" : "#555500",
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "50%",
+                        marginBottom: "10px",
+                        cursor: "pointer",
+                    }}
+                ></div>
+                {/* Luz verde */}
+                <div
+                    onClick={() => setColor("green")}
+                    style={{
+                        backgroundColor: color === "green" ? "#00FF00" : "#055500",
+                        width: "60px",
+                        height: "60px",
+                        borderRadius: "50%",
+                        cursor: "pointer",
+                    }}
+                ></div>
+            </div>
+        </div>
+    );
 };
 
 export default Home;
+
